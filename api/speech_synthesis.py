@@ -56,6 +56,6 @@ class SpeechSynthesis(Base):
         )
         result = result_response.headers.__getitem__('Content-Type')
         assert (result == 'audio/wav'), Error('语音合成失败')
-        with open('text.wav', 'wb') as f:
+        with open('demo.wav', 'wb') as f:
             f.write(result_response.content)
         return result
