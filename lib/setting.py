@@ -6,13 +6,13 @@ import uuid
 import hashlib
 
 # appKey
-client_id = ''
+CLIENT_ID = ''
 # secretKey
-client_secret = ''
+CLIENT_SECRET = ''
 # pcm音频文件位置
-audio_path = ''
+AUDIO_PATH = ''
 # MAC地址md5加密做cuid
-cuid = hashlib.md5(
+CUID = hashlib.md5(
     uuid.UUID(
         int=uuid.getnode()
     ).hex[-12:].encode()

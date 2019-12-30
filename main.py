@@ -2,13 +2,13 @@
 @Author: Senkita
 '''
 
-from speech_recognition import SpeechRecognition
-from utils import *
-from setting import audio_path
+from api.speech_recognition import SpeechRecognition
+from lib.utils import *
+from lib.setting import AUDIO_PATH
 
 def main():
     sr = SpeechRecognition(
-        audio_path
+        AUDIO_PATH
     )
     
     log(sr.speech_recognition())

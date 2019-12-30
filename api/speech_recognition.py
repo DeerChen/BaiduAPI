@@ -7,9 +7,9 @@ import json
 import os
 import base64
 import requests
-from base import Base
-from utils import *
-from setting import cuid
+from .base import Base
+from lib.utils import *
+from lib.setting import CUID
 
 # 语音识别
 class SpeechRecognition(Base):
@@ -43,7 +43,7 @@ class SpeechRecognition(Base):
             'format': 'pcm',
             'rate': 16000,
             'channel': 1,
-            'cuid': cuid,
+            'cuid': CUID,
             'token': self.verification(),
             'dev_id': 1537,
             'speech': self.speech,

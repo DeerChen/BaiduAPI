@@ -4,8 +4,8 @@
 
 import requests
 import time
-from setting import client_id, client_secret
-from utils import *
+from lib.setting import CLIENT_ID, CLIENT_SECRET
+from lib.utils import *
 
 # api共用基础类
 class Base:
@@ -13,8 +13,8 @@ class Base:
         self.grant_type = 'client_credentials'
         self.authorization_url = 'https://openapi.baidu.com/oauth/2.0/token?grant_type={}&client_id={}&client_secret={}'.format(
             self.grant_type,
-            client_id,
-            client_secret
+            CLIENT_ID,
+            CLIENT_SECRET
         )
 
     # 鉴权
