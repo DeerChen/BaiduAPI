@@ -9,16 +9,15 @@ import base64
 import requests
 from base import Base
 from utils import *
+from setting import cuid
 
 # 语音识别
 class SpeechRecognition(Base):
-    def __init__(self, client_id, client_secret, audio_path):
-        super().__init__(client_id, client_secret)
-        self.access_token_dict = None
-        self.access_token = self.verification()
+    def __init__(self, audio_path):
+        super().__init__()
         self.audio_path = audio_path
-        self.speech, self.len = self.audio_base64()[0], self.audio_base64()[1]
-        self.data_json = self.assemble_data_json()
+        self.access_token_dict = None
+        self.speech, self.len = self.audio_base64()
         self.api_url = "https://vop.baidu.com/server_api"
     
     # 验权
@@ -44,8 +43,8 @@ class SpeechRecognition(Base):
             'format': 'pcm',
             'rate': 16000,
             'channel': 1,
-            'cuid': 'SpeechToText',
-            'token': self.access_token,
+            'cuid': cuid,
+            'token': self.verification(),
             'dev_id': 1537,
             'speech': self.speech,
             'len': self.len
@@ -59,7 +58,7 @@ class SpeechRecognition(Base):
         }
         result_response = requests.post(
             url = self.api_url,
-            data = self.data_json,
+            data = self.assemble_data_json(),
             headers = headers
         )
         result = result_response.json().get('result')
