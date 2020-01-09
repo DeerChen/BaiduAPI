@@ -8,6 +8,7 @@ import os
 import base64
 import requests
 from .base import Base
+from .parent_dir import *
 from lib.utils import *
 from lib.setting import CUID
 
