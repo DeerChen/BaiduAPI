@@ -4,7 +4,10 @@
 
 import requests
 import time
-from .parent_dir import *
+import sys
+
+sys.path.append('.')
+from api.parent_dir import *
 from lib.setting import CLIENT_ID, CLIENT_SECRET
 from lib.utils import *
 

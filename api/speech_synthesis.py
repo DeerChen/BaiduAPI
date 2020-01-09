@@ -5,8 +5,11 @@
 import time
 import requests
 from urllib.parse import urlencode
-from .base import Base
-from .parent_dir import *
+import sys
+
+sys.path.append('.')
+from api.base import Base
+from api.parent_dir import *
 from lib.utils import *
 from lib.setting import CUID
 
